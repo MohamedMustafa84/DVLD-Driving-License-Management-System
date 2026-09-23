@@ -1,0 +1,13 @@
+bin/
+obj/
+*.user
+*.mdf
+*.ldf
+*.ndf
+*.vs/
+appsettings.Local.json
+secret.json
+*.log
+Thumbs.db
+desktop.ini
+packages/
