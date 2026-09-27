@@ -29,3 +29,11 @@
 		('Agricultural Driving License','Agricultural Driving License',5,21,50),
 		('Small And Medium Bus','Small And Medium Bus',5,21,250),
 		('Truck And Heavy Vehicle','Truck And Heavy Vehicle',5,21,3000);
+
+
+	-- add tests types and its deatails 
+
+		insert into TestTypes (TestTypeTitle,TestTypeDescription,TestPaidFees) values
+			('Vision Test','This assesses the applicants visual acuity to ensure they have sufficient vision to drive safely',10.0000),
+			('Written Test','This test assesses the applicants knowledge of traffic rules, road signs, and driving regulations. It typically consists of multiple-choice questions, and the applicant must select the correct answer(s). The written test aims to ensure that the applicant understands the rules of the road and can apply them in various driving scenarios',20.0000),
+			('Street Test' , 'This test evaluates the applicants driving skills and ability to operate a motor vehicle safely on public roads. A licensed examiner accompanies the applicant in the vehicle and observes their driving performance.',35.0000);
