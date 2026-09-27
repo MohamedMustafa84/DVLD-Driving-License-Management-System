@@ -22,13 +22,13 @@
 	-- add license classes references data
 
 	insert into LicenseClasses (ClassName,ClassDescription,DefaultValidityLength,MinimumAllowedAge,ClassFees) values
-		('Small Motorcycle','Small Motorcycle License',5,18,15),
-		('Heavy Motorcycle License','Heavy Motocycle License',5,18,30),
-		('Ordinary Driving License','Ordinary Driving License',10,18,20),
-		('Commercial Driving License','Commercial Driving License',5,21,200),
-		('Agricultural Driving License','Agricultural Driving License',5,21,50),
-		('Small And Medium Bus','Small And Medium Bus',5,21,250),
-		('Truck And Heavy Vehicle','Truck And Heavy Vehicle',5,21,3000);
+		('Class 1 - Small Motorcycle','It allows the driver to drive small motorcycles, It is suitable for motorcycles with small capacity and limited power.',5,18,15.0000),
+		('Class 2 - Heavy Motorcycle License','Heavy Motorcycle License (Large Motorcycle License)',5,21,30.0000),
+		('Class 3 - Ordinary driving license','Ordinary driving license (car licence)',10,18,20.0000),
+		('Class 4 - Commercial','Commercial driving license (taxi/limousine)',10,21,200.0000),
+		('Class 5 - Agricultural','Agricultural and work vehicles used in farming or construction, (tractors / tillage machinery)',10,21,50.000),
+		('Class 6 - Small and medium bus','Small and medium bus license',10,21,250.0000),
+		('Class 7 - Truck and heavy vehicle','Truck And Heavy Vehicle',5,21,3000);
 
 
 	-- add tests types and its deatails 
