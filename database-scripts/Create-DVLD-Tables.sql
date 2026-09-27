@@ -58,7 +58,7 @@ create Table People (
 		LicenseClassID int  Primary Key IDENTITY(1,1),
 		ClassName nvarchar(50) not null,
 		ClassDescription nvarchar(500) not null,
-		DefaultValityLength tinyint not null,
+		DefaultValidityLength tinyint not null,
 		MinimumAllowedAge tinyint  not null,
 		ClassFees smallmoney not null
 	);
