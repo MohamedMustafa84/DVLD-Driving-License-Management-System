@@ -50,3 +50,9 @@
 	@level0type=N'SCHEMA',@level0name='dbo',
 	@level1type=N'TABLE',@level1name='Licenses',
 	@level2type=N'COLUMN',@level2name='IssueReason';
+
+
+	--add new application type to retake tests
+
+	insert into ApplicationsTypes values
+	('Retake Test',5.000);
