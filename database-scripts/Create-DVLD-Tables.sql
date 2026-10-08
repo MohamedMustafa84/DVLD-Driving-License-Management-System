@@ -22,6 +22,10 @@ create Table People (
 	ImagePath nvarchar(250) 
 );
 
+-- modify person email to accept nullable value
+alter table People 
+alter column Email nvarchar(20) null;
+
 
  
  create table Users(
