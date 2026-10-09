@@ -18,7 +18,7 @@ create Table People (
 	NationaltyID int references Countries(CountryID),
 	Email nvarchar(20) not null,
 	PersonAddress nvarchar(500) not null,
-	Gender tinyInt not null,
+	Gender tinyInt not null, --1=male 2=female
 	ImagePath nvarchar(250) 
 );
 
