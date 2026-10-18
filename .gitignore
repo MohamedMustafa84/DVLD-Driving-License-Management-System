@@ -8,6 +8,8 @@ obj/
 appsettings.Local.json
 secret.json
 *.log
+*.config
 Thumbs.db
 desktop.ini
 packages/
+MigrationBackup/
