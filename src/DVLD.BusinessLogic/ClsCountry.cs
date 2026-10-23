@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DVLD.BusinessLogic
 {
-    internal class ClsCountry
+    public class ClsCountry
     {
 
         public int ID { get; set; }
