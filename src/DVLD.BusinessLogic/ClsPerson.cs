@@ -149,6 +149,28 @@ namespace DVLD.BusinessLogic
 
         }
 
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if(_AddNewPerson())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;  
+                    }
+                case enMode.Update:
+
+                    return _UpdateInfo();
+
+                default:
+                    return false;
+            }
+        }
 
         public static DataTable GetPeopleInfo()
         {
