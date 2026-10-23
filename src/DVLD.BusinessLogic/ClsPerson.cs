@@ -133,7 +133,7 @@ namespace DVLD.BusinessLogic
 
         }
 
-         bool AddNewPerson() { 
+         bool _AddNewPerson() { 
             this.PersonID= ClsPersonData.AddNewPerson(this.FirstName, this.SecondName, this.ThirdName, this.LastName,
                                  this.NationalNo, this.NationalityID, this.DateOfBirth, this.Phone, this.Email, this.PersonAddress, this.Gender, this.ImagePath);
          
@@ -141,6 +141,13 @@ namespace DVLD.BusinessLogic
         
         }
 
+        bool _UpdateInfo()
+        {
+            return ClsPersonData.UpdatePerson (this.PersonID,this.FirstName, this.SecondName, this.ThirdName, this.LastName,
+                                 this.NationalNo, this.NationalityID, this.DateOfBirth, this.Phone, this.Email, this.PersonAddress, this.Gender, this.ImagePath);
+
+
+        }
 
 
         public static DataTable GetPeopleInfo()
