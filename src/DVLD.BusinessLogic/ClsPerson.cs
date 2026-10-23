@@ -172,6 +172,11 @@ namespace DVLD.BusinessLogic
             }
         }
 
+        public static bool Delete(int personID)
+        {
+            return ClsPersonData.DeletePerson(personID);
+        }
+
         public static DataTable GetPeopleInfo()
         {
             return ClsPersonData.GetAllPeople();

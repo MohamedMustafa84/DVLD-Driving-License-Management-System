@@ -11,13 +11,11 @@ namespace DVLD.DataAccess
 {
     public class ClsPersonData
     {
-        static string ConnectionString = DataAccessSettings.ConnectionString;
-
         public static DataTable GetAllPeople()
         {
             DataTable dtPeopleTable = new DataTable();
 
-            SqlConnection Connection = new SqlConnection(ConnectionString);
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"SELECT People.FirstName,People.SecondName,People.ThirdName,People.LastName,
                     People.NationalNo ,People.DateOFBirth,People.Gender,
@@ -72,7 +70,7 @@ namespace DVLD.DataAccess
 
             bool isFound = false;
 
-            SqlConnection Connection = new SqlConnection(ConnectionString);
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"select * from People where PersonID= @personID";
 
@@ -152,7 +150,7 @@ namespace DVLD.DataAccess
 
             bool isFound = false;
 
-            SqlConnection Connection = new SqlConnection(ConnectionString);
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"select * from People where NationalNo= @nationalNo";
 
@@ -233,7 +231,7 @@ namespace DVLD.DataAccess
         {
 
 
-            SqlConnection Connection = new SqlConnection(ConnectionString);
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"insert into People (FirstName,SecondName,ThirdName,LastName,
                              NationalNo,NationaltyID,DateOfBirth,Phone,Email,PersonAddress,Gender,ImagePath) 
@@ -312,7 +310,7 @@ namespace DVLD.DataAccess
         {
 
 
-            SqlConnection Connection = new SqlConnection(ConnectionString);
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"Update People set 
                         
@@ -332,6 +330,8 @@ namespace DVLD.DataAccess
                         ";
 
             SqlCommand command = new SqlCommand(query, Connection);
+            
+            command.Parameters.AddWithValue(@"personID", personID);
             command.Parameters.AddWithValue(@"firstName", firstName);
             command.Parameters.AddWithValue(@"secondName", secondName);
             command.Parameters.AddWithValue(@"thirdName", thirdName);
@@ -390,6 +390,42 @@ namespace DVLD.DataAccess
 
         }
 
+
+        public static bool DeletePerson(int personID)
+        { 
+
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"delete People where PersonID=@personID";
+
+            SqlCommand command = new SqlCommand(query, Connection);
+
+            command.Parameters.AddWithValue(@"personID", personID);
+
+
+            int EffectedRows = 0;
+
+            try
+            {
+                Connection.Open();
+
+                EffectedRows = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+                //Console.WriteLine("Error While Updating Person Info :"+ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+
+            }
+            return (EffectedRows > 0);
+
+        }
 
 
 
