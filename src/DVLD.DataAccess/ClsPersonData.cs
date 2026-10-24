@@ -416,7 +416,7 @@ namespace DVLD.DataAccess
             catch (Exception ex)
             {
 
-                //Console.WriteLine("Error While Updating Person Info :"+ex.Message);
+                //Console.WriteLine("Error While Deleting Person Info :"+ex.Message);
             }
             finally
             {
@@ -428,6 +428,90 @@ namespace DVLD.DataAccess
         }
 
 
+
+        public static bool IsPersonExist(int personID)
+        {
+
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select found =1 from People where PersonID=@personID";
+
+            SqlCommand command = new SqlCommand(query, Connection);
+
+            command.Parameters.AddWithValue(@"personID", personID);
+
+
+            bool isFound = false;
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                //Console.WriteLine("Error While Checking if Person Exist :"+ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+
+            }
+            return isFound;
+
+        }
+
+
+
+
+
+        public static bool IsPersonExist(string nationalNo)
+        {
+
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select found =1 from People where NationalNo=@nationalNo";
+
+            SqlCommand command = new SqlCommand(query, Connection);
+
+            command.Parameters.AddWithValue(@"nationalNo", nationalNo);
+
+
+            bool isFound = false;
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                //Console.WriteLine("Error While Checking if Person Exist by its NationalNo:"+ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+
+            }
+            return isFound;
+
+        }
 
     }
 }

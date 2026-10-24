@@ -177,6 +177,17 @@ namespace DVLD.BusinessLogic
             return ClsPersonData.DeletePerson(personID);
         }
 
+
+        public static bool IsPersonExist(int PersonID)
+        {
+            return ClsPersonData.IsPersonExist(PersonID);
+        }
+
+
+        public static bool IsPersonExist(string NationalNo)
+        {
+            return ClsPersonData.IsPersonExist(NationalNo);
+        }
         public static DataTable GetPeopleInfo()
         {
             return ClsPersonData.GetAllPeople();
