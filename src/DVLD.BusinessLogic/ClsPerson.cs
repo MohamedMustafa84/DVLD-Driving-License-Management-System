@@ -59,6 +59,7 @@ namespace DVLD.BusinessLogic
             LastName = lastName;
             NationalNo = nationalNo;
             NationalityID = nationaltyID;
+            CountryInfo = ClsCountry.Find(nationaltyID);
             DateOfBirth = dateOfBirth;
             Phone = phone;
             Email = email;
