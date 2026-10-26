@@ -32,7 +32,7 @@ namespace DVLD.BusinessLogic
         public string ImagePath { get; set; }
 
 
-        ClsPerson()
+        public ClsPerson()
         {
             PersonID = -1;
             FirstName = null;
