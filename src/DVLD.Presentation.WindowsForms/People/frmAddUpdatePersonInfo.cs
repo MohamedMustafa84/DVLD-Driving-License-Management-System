@@ -55,6 +55,7 @@ namespace DVLD.Presentation.WindowsForms.People
                 return;
             }
 
+
             lbPersonID.Text = _Person.PersonID.ToString();
 
             tbFirstName.Text = _Person.FirstName;
@@ -65,7 +66,6 @@ namespace DVLD.Presentation.WindowsForms.People
             tbNationalNo.Text = _Person.NationalNo;
             dtDateOfBirth.Text = _Person.DateOfBirth.ToString();
             tbPhone.Text = _Person.Phone;
-            cbCountry.SelectedText = _Person.CountryInfo.CountryName;
 
             if (_Person.Email != null)
             {
@@ -76,14 +76,14 @@ namespace DVLD.Presentation.WindowsForms.People
                 tbEmail.Text = string.Empty;
             }
 
-
+            
             if (_Person.Gender == 1)
             {
                 rbMale.Checked = true;
             }
             else
             {
-                rbFemale.Checked = false;
+                rbFemale.Checked = true;
             }
 
 
@@ -95,6 +95,7 @@ namespace DVLD.Presentation.WindowsForms.People
             llRemoveImage.Visible = (_Person.ImagePath != null);
 
             tbAddress.Text = _Person.PersonAddress;
+            cbCountries.SelectedText = _Person.CountryInfo.CountryName;
 
 
         }
@@ -105,7 +106,7 @@ namespace DVLD.Presentation.WindowsForms.People
 
             foreach (DataRow Row in dtCountries.Rows)
             {
-                cbCountry.Items.Add(Row["CountryName"]);
+                cbCountries.Items.Add(Row["CountryName"]);
             }
         }
 
@@ -116,20 +117,20 @@ namespace DVLD.Presentation.WindowsForms.People
             _Person.ThirdName = tbThirdName.Text.Trim();
             _Person.LastName = tbLastName.Text.Trim();
 
-            _Person.NationalityID = ClsCountry.Find(cbCountry.Text.Trim()).ID;
+            _Person.NationalityID = ClsCountry.Find(cbCountries.Text).ID;
             _Person.Phone = tbPhone.Text.Trim();
             _Person.PersonAddress = tbAddress.Text.Trim();
             _Person.NationalNo = tbNationalNo.Text.Trim();
             _Person.DateOfBirth = dtDateOfBirth.Value;
 
 
-            if (rbFemale.Checked)
+            if (rbMale.Checked)
             {
-                _Person.Gender = (int)enGender.Male;
+                _Person.Gender = (byte)enGender.Male;
             }
             else
             {
-                _Person.Gender = (int)enGender.Female;
+                _Person.Gender = (byte)enGender.Female;
             }
 
 
@@ -154,6 +155,7 @@ namespace DVLD.Presentation.WindowsForms.People
         void _ResetetDefaultValues()
         {
 
+            _FillComboBoxWithCountries();
 
             if (_Mode == enMode.AddNew)
             {
@@ -163,8 +165,8 @@ namespace DVLD.Presentation.WindowsForms.People
             else
             {
                 lbTitle.Text = "Update Person Info";
+                return;
             }
-            _FillComboBoxWithCountries();
 
             lbPersonID.Text = "-1";
 
@@ -176,7 +178,7 @@ namespace DVLD.Presentation.WindowsForms.People
             rbMale.Checked = true;
             pbPersonImage.Image = Resources.Male_512;
             tbPhone.Text = "";
-            cbCountry.SelectedText = "Sudan";
+            cbCountries.SelectedIndex = cbCountries.FindString("Sudan");
             tbAddress.Text = "";
             tbNationalNo.Text = "";
             dtDateOfBirth.Text = "";
@@ -256,13 +258,12 @@ namespace DVLD.Presentation.WindowsForms.People
             if (_Person.Save())
             {
                 lbPersonID.Text = _Person.PersonID.ToString();
-
                 _Mode = enMode.Update;
                 lbTitle.Text = "Update Person";
 
                 MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //DataBack.Invoke(this, _Person.PersonID);
+                DataBack.Invoke(this, _Person.PersonID);
 
 
 
@@ -279,13 +280,13 @@ namespace DVLD.Presentation.WindowsForms.People
 
         private void rbFemale_CheckedChanged(object sender, EventArgs e)
         {
-            _Person.Gender = (int)enGender.Female;
+            _Person.Gender = (byte)enGender.Female;
             pbPersonImage.Image = Resources.Female_512;
         }
 
         private void rbMale_CheckedChanged(object sender, EventArgs e)
         {
-            _Person.Gender = (int)enGender.Male;
+            _Person.Gender = (byte)enGender.Male;
             pbPersonImage.Image = Resources.Male_512;
         }
 

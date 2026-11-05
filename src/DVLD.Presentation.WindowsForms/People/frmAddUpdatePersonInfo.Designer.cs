@@ -35,9 +35,9 @@
             this.lbPersonID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbCountries = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.cbCountry = new System.Windows.Forms.ComboBox();
             this.llRemoveImage = new System.Windows.Forms.LinkLabel();
             this.llSetImage = new System.Windows.Forms.LinkLabel();
             this.tbAddress = new System.Windows.Forms.TextBox();
@@ -122,9 +122,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbCountries);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.cbCountry);
             this.groupBox1.Controls.Add(this.llRemoveImage);
             this.groupBox1.Controls.Add(this.llSetImage);
             this.groupBox1.Controls.Add(this.tbAddress);
@@ -157,6 +157,15 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
+            // cbCountries
+            // 
+            this.cbCountries.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCountries.FormattingEnabled = true;
+            this.cbCountries.Location = new System.Drawing.Point(748, 309);
+            this.cbCountries.Name = "cbCountries";
+            this.cbCountries.Size = new System.Drawing.Size(245, 37);
+            this.cbCountries.TabIndex = 26;
+            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.White;
@@ -182,15 +191,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // cbCountry
-            // 
-            this.cbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCountry.FormattingEnabled = true;
-            this.cbCountry.Location = new System.Drawing.Point(748, 309);
-            this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(245, 37);
-            this.cbCountry.TabIndex = 11;
             // 
             // llRemoveImage
             // 
@@ -445,7 +445,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // frmAddUpdatePersonInfo
+            // cbCountry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -454,7 +454,7 @@
             this.Controls.Add(this.lbPersonID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbTitle);
-            this.Name = "frmAddUpdatePersonInfo";
+            this.Name = "cbCountry";
             this.Text = "frmAddUpdatePersonInfo";
             this.Load += new System.EventHandler(this.frmAddUpdatePersonInfo_Load);
             this.groupBox1.ResumeLayout(false);
@@ -497,11 +497,11 @@
         private System.Windows.Forms.LinkLabel llSetImage;
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cbCountry;
         private System.Windows.Forms.LinkLabel llRemoveImage;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox cbCountries;
     }
 }
