@@ -28,7 +28,7 @@ namespace DVLD.BusinessLogic
         public string Phone { get; set; }
         public string Email { get; set; }
         public string PersonAddress { get; set; }
-        public int Gender { get; set; }
+        public byte Gender { get; set; }
         public string ImagePath { get; set; }
 
 
@@ -50,7 +50,7 @@ namespace DVLD.BusinessLogic
         }
 
         ClsPerson(int personID, string firstName, string secondName, string thirdName, string lastName,
-            string nationalNo, int nationaltyID, DateTime dateOfBirth, string phone, string email, string personAddress, int gender, string imagePath)
+            string nationalNo, int nationaltyID, DateTime dateOfBirth, string phone, string email, string personAddress, byte gender, string imagePath)
         {
             PersonID = personID;
             FirstName = firstName;
@@ -80,7 +80,7 @@ namespace DVLD.BusinessLogic
             string phone = null;
             string email = null;
             string personAddress = null;
-            int gender = 0;
+            byte gender = 0;
             string imagePath = null;
 
             bool isFound = ClsPersonData.FindPersonByID(ID, ref firstName, ref secondName, ref thirdName, ref lastName,
@@ -115,7 +115,7 @@ namespace DVLD.BusinessLogic
             string phone = null;
             string email = null;
             string personAddress = null;
-            int gender = 0;
+            byte gender = 0;
             string imagePath = null;
 
             bool isFound = ClsPersonData.FindPersonByNationalNo(ref ID, ref firstName, ref secondName, ref thirdName, ref lastName,
@@ -152,6 +152,10 @@ namespace DVLD.BusinessLogic
 
         public bool Save()
         {
+            if (PersonID!= -1)
+            {
+                Mode = enMode.Update;
+            }
             switch (Mode)
             {
                 case enMode.AddNew:

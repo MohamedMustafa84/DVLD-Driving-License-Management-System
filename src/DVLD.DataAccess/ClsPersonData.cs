@@ -65,7 +65,7 @@ namespace DVLD.DataAccess
         }
 
         public static bool FindPersonByID(int personID, ref string firstName, ref string secondName, ref string thirdName, ref string lastName,
-            ref string nationalNo, ref int nationaltyID, ref DateTime dateOfBirth, ref string phone, ref string email, ref string personAddress, ref int gender, ref string imagePath)
+            ref string nationalNo, ref int nationaltyID, ref DateTime dateOfBirth, ref string phone, ref string email, ref string personAddress, ref byte gender, ref string imagePath)
         {
 
             bool isFound = false;
@@ -96,7 +96,7 @@ namespace DVLD.DataAccess
                     dateOfBirth = (DateTime)reader["DateOfBirth"];
                     phone = (string)reader["Phone"];
 
-                    if (reader["Phone"] != DBNull.Value)
+                    if (reader["Email"] != DBNull.Value)
                     {
                         email = (string)reader["Email"];
 
@@ -108,7 +108,7 @@ namespace DVLD.DataAccess
 
 
                     personAddress = (string)reader["PersonAddress"];
-                    gender = (int)reader["Gender"];
+                    gender =  (byte)reader["Gender"];
                     personAddress = (string)reader["PersonAddress"];
 
 
@@ -145,7 +145,7 @@ namespace DVLD.DataAccess
 
 
         public static bool FindPersonByNationalNo(ref int personID, ref string firstName, ref string secondName, ref string thirdName, ref string lastName,
-             string nationalNo, ref int nationaltyID, ref DateTime dateOfBirth, ref string phone, ref string email, ref string personAddress, ref int gender, ref string imagePath)
+             string nationalNo, ref int nationaltyID, ref DateTime dateOfBirth, ref string phone, ref string email, ref string personAddress, ref byte gender, ref string imagePath)
         {
 
             bool isFound = false;
@@ -189,7 +189,7 @@ namespace DVLD.DataAccess
 
 
                     personAddress = (string)reader["PersonAddress"];
-                    gender = (int)reader["Gender"];
+                    gender = (byte)reader["Gender"];
                     personAddress = (string)reader["PersonAddress"];
 
 
@@ -227,7 +227,7 @@ namespace DVLD.DataAccess
 
 
         public static int AddNewPerson(string firstName, string secondName, string thirdName, string lastName,
-            string nationalNo, int nationaltyID, DateTime dateOfBirth, string phone, string email, string personAddress, int gender, string imagePath)
+            string nationalNo, int nationaltyID, DateTime dateOfBirth, string phone, string email, string personAddress, byte gender, string imagePath)
         {
 
 
@@ -306,7 +306,7 @@ namespace DVLD.DataAccess
 
 
         public static bool UpdatePerson(int personID ,string firstName, string secondName, string thirdName, string lastName,
-            string nationalNo, int nationaltyID, DateTime dateOfBirth, string phone, string email, string personAddress, int gender, string imagePath)
+            string nationalNo, int nationaltyID, DateTime dateOfBirth, string phone, string email, string personAddress, byte gender, string imagePath)
         {
 
 
