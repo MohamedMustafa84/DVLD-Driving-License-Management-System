@@ -57,7 +57,7 @@
             // 
             this.llEditPersonInfo.AutoSize = true;
             this.llEditPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llEditPersonInfo.Location = new System.Drawing.Point(865, 47);
+            this.llEditPersonInfo.Location = new System.Drawing.Point(928, 47);
             this.llEditPersonInfo.Name = "llEditPersonInfo";
             this.llEditPersonInfo.Size = new System.Drawing.Size(128, 20);
             this.llEditPersonInfo.TabIndex = 23;
@@ -79,7 +79,7 @@
             // 
             this.lbPhone.AutoSize = true;
             this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPhone.Location = new System.Drawing.Point(531, 202);
+            this.lbPhone.Location = new System.Drawing.Point(547, 202);
             this.lbPhone.Name = "lbPhone";
             this.lbPhone.Size = new System.Drawing.Size(77, 22);
             this.lbPhone.TabIndex = 20;
@@ -89,7 +89,7 @@
             // 
             this.lbDateOfBirth.AutoSize = true;
             this.lbDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDateOfBirth.Location = new System.Drawing.Point(531, 143);
+            this.lbDateOfBirth.Location = new System.Drawing.Point(557, 143);
             this.lbDateOfBirth.Name = "lbDateOfBirth";
             this.lbDateOfBirth.Size = new System.Drawing.Size(77, 22);
             this.lbDateOfBirth.TabIndex = 19;
@@ -99,7 +99,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(424, 202);
+            this.label8.Location = new System.Drawing.Point(434, 202);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 22);
             this.label8.TabIndex = 18;
@@ -119,7 +119,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(370, 143);
+            this.label1.Location = new System.Drawing.Point(389, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 22);
             this.label1.TabIndex = 16;
@@ -270,7 +270,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(3, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1162, 419);
+            this.groupBox1.Size = new System.Drawing.Size(1285, 419);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
@@ -278,7 +278,7 @@
             // pbPersonImage
             // 
             this.pbPersonImage.Image = global::DVLD.Presentation.WindowsForms.Properties.Resources.Male_512;
-            this.pbPersonImage.Location = new System.Drawing.Point(806, 93);
+            this.pbPersonImage.Location = new System.Drawing.Point(845, 93);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(281, 231);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -291,7 +291,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "ctrlPersonCard";
-            this.Size = new System.Drawing.Size(1174, 439);
+            this.Size = new System.Drawing.Size(1291, 439);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
