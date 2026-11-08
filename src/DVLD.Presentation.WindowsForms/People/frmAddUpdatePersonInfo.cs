@@ -251,6 +251,13 @@ namespace DVLD.Presentation.WindowsForms.People
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+            if (!this.ValidateChildren())
+            {
+                MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             _AddUpdateNewPerson();
 
             _HandelImage();
@@ -345,30 +352,26 @@ namespace DVLD.Presentation.WindowsForms.People
 
             }
 
-        
 
+        private void ValidateEmptyTextBox(object sender, CancelEventArgs e)
+        {
 
-        
+            // First: set AutoValidate property of your Form to EnableAllowFocusChange in designer 
+            TextBox Temp = ((TextBox)sender);
+            if (string.IsNullOrEmpty(Temp.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(Temp, "This field is required!");
+            }
+            else
+            {
+                //e.Cancel = false;
+                errorProvider1.SetError(Temp, null);
+            }
 
-        private void TextBoxEmptyValue_Validating(object sender, CancelEventArgs e)
-                {
-
-                    TextBox Temp = (TextBox)sender;
-
-                    if (string.IsNullOrEmpty(Temp.Text.Trim()))
-                    {
-                        e.Cancel = true;
-                        errorProvider1.SetError(Temp, "This Field Is Required");
-
-
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(Temp, null);
-
-
-                    }
         }
+
+
 
         private void tbNationalNo_Validating_1(object sender, CancelEventArgs e)
         {

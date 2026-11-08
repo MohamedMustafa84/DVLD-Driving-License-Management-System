@@ -88,7 +88,7 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(207, 34);
             this.tbFirstName.TabIndex = 1;
-            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxEmptyValue_Validating);
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this._ValidateEmptyTextBox);
             // 
             // label2
             // 
@@ -272,7 +272,7 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(245, 34);
             this.tbPhone.TabIndex = 9;
-            this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxEmptyValue_Validating);
+            this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this._ValidateEmptyTextBox);
             // 
             // label11
             // 
@@ -377,7 +377,7 @@
             this.tbSecondName.Name = "tbSecondName";
             this.tbSecondName.Size = new System.Drawing.Size(207, 34);
             this.tbSecondName.TabIndex = 2;
-            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxEmptyValue_Validating);
+            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this._ValidateEmptyTextBox);
             // 
             // tbThirdName
             // 
@@ -386,7 +386,7 @@
             this.tbThirdName.Name = "tbThirdName";
             this.tbThirdName.Size = new System.Drawing.Size(207, 34);
             this.tbThirdName.TabIndex = 3;
-            this.tbThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxEmptyValue_Validating);
+            this.tbThirdName.Validating += new System.ComponentModel.CancelEventHandler(this._ValidateEmptyTextBox);
             // 
             // tbLastName
             // 
@@ -395,7 +395,7 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(207, 34);
             this.tbLastName.TabIndex = 4;
-            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxEmptyValue_Validating);
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this._ValidateEmptyTextBox);
             // 
             // label7
             // 
@@ -445,7 +445,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // cbCountry
+            // frmAddUpdatePersonInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -454,7 +454,7 @@
             this.Controls.Add(this.lbPersonID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbTitle);
-            this.Name = "cbCountry";
+            this.Name = "frmAddUpdatePersonInfo";
             this.Text = "frmAddUpdatePersonInfo";
             this.Load += new System.EventHandler(this.frmAddUpdatePersonInfo_Load);
             this.groupBox1.ResumeLayout(false);
