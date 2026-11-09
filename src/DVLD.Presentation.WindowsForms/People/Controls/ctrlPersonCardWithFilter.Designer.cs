@@ -32,11 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.tbFilterValue = new System.Windows.Forms.TextBox();
-            this.btnFind = new System.Windows.Forms.Button();
-            this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.gbFilter = new System.Windows.Forms.GroupBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ctrlCard = new DVLD.Presentation.WindowsForms.People.Controls.ctrlPersonCard();
+            this.btnAddNewPerson = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -74,26 +74,6 @@
             this.tbFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFilterValue_KeyPress);
             this.tbFilterValue.Validating += new System.ComponentModel.CancelEventHandler(this.tbFilterValue_Validating_1);
             // 
-            // btnFind
-            // 
-            this.btnFind.Image = global::DVLD.Presentation.WindowsForms.Properties.Resources.SearchPerson;
-            this.btnFind.Location = new System.Drawing.Point(767, 36);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(88, 49);
-            this.btnFind.TabIndex = 6;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnAddNewPerson
-            // 
-            this.btnAddNewPerson.Image = global::DVLD.Presentation.WindowsForms.Properties.Resources.Add_Person_40;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(861, 36);
-            this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(88, 49);
-            this.btnAddNewPerson.TabIndex = 7;
-            this.btnAddNewPerson.UseVisualStyleBackColor = true;
-            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
-            // 
             // gbFilter
             // 
             this.gbFilter.Controls.Add(this.btnAddNewPerson);
@@ -118,8 +98,28 @@
             this.ctrlCard.Location = new System.Drawing.Point(4, 153);
             this.ctrlCard.Margin = new System.Windows.Forms.Padding(4);
             this.ctrlCard.Name = "ctrlCard";
-            this.ctrlCard.Size = new System.Drawing.Size(1149, 439);
+            this.ctrlCard.Size = new System.Drawing.Size(1172, 439);
             this.ctrlCard.TabIndex = 9;
+            // 
+            // btnAddNewPerson
+            // 
+            this.btnAddNewPerson.Image = global::DVLD.Presentation.WindowsForms.Properties.Resources.Add_Person_40;
+            this.btnAddNewPerson.Location = new System.Drawing.Point(861, 36);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(88, 49);
+            this.btnAddNewPerson.TabIndex = 7;
+            this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.Image = global::DVLD.Presentation.WindowsForms.Properties.Resources.SearchPerson;
+            this.btnFind.Location = new System.Drawing.Point(767, 36);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(88, 49);
+            this.btnFind.TabIndex = 6;
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // ctrlPersonCardWithFilter
             // 
@@ -128,7 +128,7 @@
             this.Controls.Add(this.ctrlCard);
             this.Controls.Add(this.gbFilter);
             this.Name = "ctrlPersonCardWithFilter";
-            this.Size = new System.Drawing.Size(1159, 618);
+            this.Size = new System.Drawing.Size(1173, 618);
             this.Load += new System.EventHandler(this.ctrlPersonCardWithFilter_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
