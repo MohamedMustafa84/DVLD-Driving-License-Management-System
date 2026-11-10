@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DVLD.Presentation.WindowsForms.People;
+using DVLD.Presentation.WindowsForms.People.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +21,8 @@ namespace DVLD.Presentation.WindowsForms
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("manage people feature is not implemented yet");
+           frmManagePeople frmMagagePeople = new frmManagePeople();
+            frmMagagePeople.ShowDialog();
         }
 
         private void driversToolStripMenuItem_Click(object sender, EventArgs e)
@@ -30,8 +33,20 @@ namespace DVLD.Presentation.WindowsForms
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Manage Users  feature is not implemented yet");
+
+             frmFindPerson findPerson = new frmFindPerson();
+            findPerson.DataBack += DataBackHanlder;
+
+            findPerson .ShowDialog();
+
         }
 
+        private void DataBackHanlder(object sender, int PersonID)
+        {
+            MessageBox.Show("Person ID = "+PersonID,"Info",MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+            
 
     }
 }
