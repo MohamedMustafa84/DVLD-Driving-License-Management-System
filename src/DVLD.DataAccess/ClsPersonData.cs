@@ -17,10 +17,10 @@ namespace DVLD.DataAccess
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"SELECT People.FirstName,People.SecondName,People.ThirdName,People.LastName,
+            string query = @"SELECT People.PersonID,People.FirstName,People.SecondName,People.ThirdName,People.LastName,
                     People.NationalNo ,People.DateOFBirth,People.Gender,
                 CASE
-                        WHEN People.Gender =0 THEN 'Male'
+                        WHEN People.Gender =1 THEN 'Male'
                 
                  ELSE  'Female' 
                  END as GenderCaption,
