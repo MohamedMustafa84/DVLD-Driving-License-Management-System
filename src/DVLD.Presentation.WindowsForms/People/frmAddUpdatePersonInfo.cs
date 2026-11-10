@@ -64,7 +64,7 @@ namespace DVLD.Presentation.WindowsForms.People
             tbLastName.Text = _Person.LastName;
 
             tbNationalNo.Text = _Person.NationalNo;
-            dtDateOfBirth.Text = _Person.DateOfBirth.ToString();
+            dtDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
             tbPhone.Text = _Person.Phone;
 
             if (_Person.Email != null)
@@ -121,7 +121,7 @@ namespace DVLD.Presentation.WindowsForms.People
             _Person.Phone = tbPhone.Text.Trim();
             _Person.PersonAddress = tbAddress.Text.Trim();
             _Person.NationalNo = tbNationalNo.Text.Trim();
-            _Person.DateOfBirth = dtDateOfBirth.Value;
+            _Person.DateOfBirth = dtDateOfBirth.Value.Date;
 
 
             if (rbMale.Checked)
@@ -270,7 +270,7 @@ namespace DVLD.Presentation.WindowsForms.People
 
                 MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                DataBack.Invoke(this, _Person.PersonID);
+                DataBack?.Invoke(this, _Person.PersonID);
 
 
 
