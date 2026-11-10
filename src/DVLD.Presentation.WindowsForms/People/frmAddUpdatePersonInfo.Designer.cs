@@ -272,6 +272,7 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(245, 34);
             this.tbPhone.TabIndex = 9;
+            this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this._ValidateEmptyTextBox);
             // 
             // label11
