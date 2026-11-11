@@ -223,7 +223,12 @@ namespace DVLD.DataAccess
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"select * From Users";
+            string query = @"select Users.UserID,Users.PersonID,
+                            FullName = People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName,
+                               Users.UserName,Users.IsActive
+                            from Users
+                                    inner join People on Users.PersonID= People.PersonID;";
+
 
             SqlCommand command = new SqlCommand(query, connection);
 
