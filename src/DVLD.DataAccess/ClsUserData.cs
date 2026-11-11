@@ -399,5 +399,39 @@ namespace DVLD.DataAccess
             return IsFound;
         }
 
+
+        public static bool ChangeUserPassword(int userID,  string newPassword)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"update Users set
+                                     UserPassword=@newPassword
+                            where UserID=@userID;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@userID", userID);
+            command.Parameters.AddWithValue("@newPassword", newPassword);
+
+            int effectedRows = 0;
+            try
+            {
+                connection.Open();
+
+                effectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error Changing User Password:" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (effectedRows != 0);
+        }
+
     }
 }

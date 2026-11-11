@@ -142,6 +142,12 @@ namespace DVLD.BusinessLogic
         {
             return ClsUserData.IsUserExistForPersonID(PersonID);
         }
-        
+
+        public static bool ChangePassword(int  UserID, string NewPassword)
+        {
+            return ClsUserData.ChangeUserPassword(UserID, NewPassword);
+        }
+
+
     }
 }
