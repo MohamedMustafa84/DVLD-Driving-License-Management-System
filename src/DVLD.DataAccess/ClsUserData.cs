@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -215,6 +216,42 @@ namespace DVLD.DataAccess
                 connection.Close();
             }
             return (effectedRows != 0);
+        }
+
+
+        public static DataTable GetAllUsers()
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select * From Users";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+
+            DataTable UsersTable = new DataTable();
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    UsersTable.Load(reader);
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error geting Users Data :" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return UsersTable;
         }
 
 
