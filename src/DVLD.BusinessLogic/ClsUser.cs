@@ -46,7 +46,7 @@ namespace DVLD.BusinessLogic
 
         }
 
-        public static ClsUser GetUserByUserID(int userID)
+        public static ClsUser FindUserByUserID(int userID)
         {
             string UserName = "";
             string Password = "";
@@ -62,7 +62,7 @@ namespace DVLD.BusinessLogic
         }
 
 
-        public static ClsUser GetUserByPersonID(int personID)
+        public static ClsUser FindUserByPersonID(int personID)
         {
             int UserID = -1;
             string UserName = "";
@@ -78,7 +78,7 @@ namespace DVLD.BusinessLogic
         }
 
 
-        public static ClsUser GetUserByUserNameAndPassword(string userName,string password)
+        public static ClsUser FindUserByUserNameAndPassword(string userName,string password)
         {
             int UserID = -1;
             int PersonID = -1;
