@@ -123,5 +123,10 @@ namespace DVLD.BusinessLogic
             return ClsUserData.GetAllUsers();
         }
 
+        public static bool DeleteUser(int UserID)
+        {
+            return ClsUserData.DeleteUser(UserID);
+        }
+
     }
 }

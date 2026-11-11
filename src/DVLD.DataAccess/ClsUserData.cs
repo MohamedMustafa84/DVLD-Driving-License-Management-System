@@ -255,5 +255,36 @@ namespace DVLD.DataAccess
         }
 
 
+        public static bool DeleteUser(int userID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"delete Users where UserID=@userID;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@userID", userID);
+
+
+            int effectedRows = 0;
+            try
+            {
+                connection.Open();
+
+                effectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error Updating User Data:" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (effectedRows != 0);
+        }
+
     }
 }
