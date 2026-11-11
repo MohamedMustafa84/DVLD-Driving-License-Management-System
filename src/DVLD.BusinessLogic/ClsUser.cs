@@ -8,31 +8,37 @@ using System.Threading.Tasks;
 
 namespace DVLD.BusinessLogic
 {
-    public class ClsUsers
+    public class ClsUser
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        public int PersonID { get;}
+        public int PersonID { get; set; }
         public ClsPerson PersonInfo;
 
-        ClsUsers(int userID, string userName, string password, bool isActive, int personID)
-        {
-            UserID = userID;
-            UserName = userName;
-            Password = password;
-            IsActive = isActive;
-            PersonID = personID;
-            PersonInfo = ClsPerson.Find(personID);
-        }
+        public enum enMode { AddNew = 1, Update = 2 }
+        enMode Mode = enMode.AddNew;
 
-        ClsUsers()
+
+        public ClsUser(int userID, string userName, string password, bool isActive, int personID)
         {
 
+            this.Mode = enMode.Update;
+            this.UserID = userID;
+            this.UserName = userName;
+            this.Password = password;
+            this.IsActive = isActive;
+            this.PersonID = personID;
+            this.PersonInfo = ClsPerson.Find(personID);
         }
 
-        public static ClsUsers GetUserByUserID(int userID)
+        public ClsUser()
+        {
+
+        }
+
+        public static ClsUser GetUserByUserID(int userID)
         {
             string UserName = "";
             string Password = "";
@@ -42,13 +48,13 @@ namespace DVLD.BusinessLogic
 
             if (ClsUserData.getUserInfoByUserID(userID,ref UserName,ref Password,ref PersonID,ref IsActive))
             {
-                return  new ClsUsers(userID,UserName,Password,IsActive,PersonID);
+                return  new ClsUser(userID,UserName,Password,IsActive,PersonID);
             }
             return null;
         }
 
 
-        public static ClsUsers GetUserByPersonID(int personID)
+        public static ClsUser GetUserByPersonID(int personID)
         {
             int UserID = -1;
             string UserName = "";
@@ -58,13 +64,13 @@ namespace DVLD.BusinessLogic
 
             if (ClsUserData.getUserInfoByPersonID (personID,ref UserID, ref UserName, ref Password, ref IsActive))
             {
-                return new ClsUsers(UserID, UserName, Password, IsActive, personID);
+                return new ClsUser(UserID, UserName, Password, IsActive, personID);
             }
             return null;
         }
 
 
-        public static ClsUsers GetUserByUserNameAndPassword(string userName,string password)
+        public static ClsUser GetUserByUserNameAndPassword(string userName,string password)
         {
             int UserID = -1;
             int PersonID = -1;
@@ -73,15 +79,42 @@ namespace DVLD.BusinessLogic
 
             if (ClsUserData.getUserInfoByUserNameAndPassword(userName, password, ref UserID, ref PersonID, ref IsActive))
             {
-                return new ClsUsers(UserID, userName, password, IsActive, PersonID);
+                return new ClsUser(UserID, userName, password, IsActive, PersonID);
             }
             return null;
         }
 
 
-        public static bool AddNewUser( string userName, string password ,int personID, bool isActive)
+        private bool _AddNewUser()
         {
-            return ClsUserData.AddNewUser(personID, userName, password, isActive);
+            return ClsUserData.AddNewUser(PersonID, UserName, Password, IsActive);
+        }
+
+        private bool _UpdateUser()
+        {
+            return ClsUserData.UpdateUser(UserID,PersonID, UserName, Password, IsActive);
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewUser())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case enMode.Update:
+                            return _UpdateUser();
+
+                        }
+            return false;
         }
     }
 }

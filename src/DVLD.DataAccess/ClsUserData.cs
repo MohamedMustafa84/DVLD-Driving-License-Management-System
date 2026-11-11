@@ -178,5 +178,45 @@ namespace DVLD.DataAccess
 
 
 
+        public static bool UpdateUser(int userID ,int personID, string userName, string password, bool isActive)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"update Users set
+                                     PersonID=@personID,
+                                     UserName=@userName,
+                                     UserPassword=@password,
+                                     IsActive=@isActive
+                            where UserID=@userID;";
+                                    
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@userID", userID);
+            command.Parameters.AddWithValue("@userName", userName);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@personID", personID);
+            command.Parameters.AddWithValue("@isActive", isActive);
+
+            int effectedRows = 0;
+            try
+            {
+                connection.Open();
+
+                effectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error Updating User Data:" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (effectedRows != 0);
+        }
+
+
     }
 }
