@@ -36,6 +36,13 @@ namespace DVLD.BusinessLogic
 
         public ClsUser()
         {
+            this.UserID = -1;
+            this.UserName = "";
+            this.PersonID = -1;
+            this.Password = "";
+            this.PersonInfo = null;
+            this.IsActive = true;
+            Mode = enMode.AddNew;
 
         }
 
