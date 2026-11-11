@@ -10,7 +10,7 @@ namespace DVLD.DataAccess
     public class ClsUserData
     {
 
-        public static bool  GitUserInfoByUserID(int  userID, ref string userName,ref string password,ref int personID,ref bool isActive)
+        public static bool  getUserInfoByUserID(int  userID, ref string userName,ref string password,ref int personID,ref bool isActive)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
@@ -31,7 +31,7 @@ namespace DVLD.DataAccess
                 {
                     IsFound = true;
                     userName = (string)reader["UserName"];
-                    password = (string)reader["Password"];
+                    password = (string)reader["UserPassword"];
                     personID = (int)reader["PersonID"];
                     isActive = (bool)reader["IsActive"];
                 }
@@ -52,7 +52,7 @@ namespace DVLD.DataAccess
 
 
 
-        public static bool GitUserInfoByPersonID(int personID,ref int userID, ref string userName, ref string password, ref bool isActive)
+        public static bool getUserInfoByPersonID(int personID,ref int userID, ref string userName, ref string password, ref bool isActive)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
@@ -74,7 +74,7 @@ namespace DVLD.DataAccess
                     IsFound = true;
                     userID = (int)reader["UserID"];
                     userName = (string)reader["UserName"];
-                    password = (string)reader["Password"];
+                    password = (string)reader["UserPassword"];
                     isActive = (bool)reader["IsActive"];
                 }
                 reader.Close();
@@ -91,6 +91,49 @@ namespace DVLD.DataAccess
             }
             return IsFound;
         }
+
+        public static bool getUserInfoByUserNameAndPassword(string userName ,string password,ref int userID, ref int personID, ref bool isActive)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select * From Users where UserName=@userName and UserPassword =@password";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@userName", userName);
+            command.Parameters.AddWithValue("@password", password);
+
+            bool IsFound = false;
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    userID = (int)reader["UserID"];
+                    personID = (int)reader["PersonID"];
+                    isActive = (bool)reader["IsActive"];
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error geting User Info By username and Password :" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
+
+
 
     }
 }

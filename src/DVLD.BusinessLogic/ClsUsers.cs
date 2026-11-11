@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DVLD.BusinessLogic
 {
-    internal class ClsUsers
+    public class ClsUsers
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
@@ -39,7 +39,7 @@ namespace DVLD.BusinessLogic
             bool IsActive = false;
 
 
-            if(ClsUserData.GitUserInfoByUserID(userID,ref UserName,ref Password,ref PersonID,ref IsActive))
+            if (ClsUserData.getUserInfoByUserID(userID,ref UserName,ref Password,ref PersonID,ref IsActive))
             {
                 return  new ClsUsers(userID,UserName,Password,IsActive,PersonID);
             }
@@ -55,11 +55,27 @@ namespace DVLD.BusinessLogic
             bool IsActive = false;
 
 
-            if (ClsUserData.GitUserInfoByPersonID (personID,ref UserID, ref UserName, ref Password, ref IsActive))
+            if (ClsUserData.getUserInfoByPersonID (personID,ref UserID, ref UserName, ref Password, ref IsActive))
             {
                 return new ClsUsers(UserID, UserName, Password, IsActive, personID);
             }
             return null;
         }
+
+
+        public static ClsUsers GetUserByUserNameAndPassword(string userName,string password)
+        {
+            int UserID = -1;
+            int PersonID = -1;
+            bool IsActive = false;
+
+
+            if (ClsUserData.getUserInfoByUserNameAndPassword(userName, password, ref UserID, ref PersonID, ref IsActive))
+            {
+                return new ClsUsers(UserID, userName, password, IsActive, PersonID);
+            }
+            return null;
+        }
+
     }
 }
