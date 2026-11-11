@@ -286,5 +286,41 @@ namespace DVLD.DataAccess
             return (effectedRows != 0);
         }
 
+
+        public static bool IsUserExist(int userID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select Found=1 from Users where UserID=@userID;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@userID", userID);
+
+
+            bool IsFound = false;
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                IsFound =reader.HasRows;
+
+                
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error Updating User Data:" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
     }
 }

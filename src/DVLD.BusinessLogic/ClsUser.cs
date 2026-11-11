@@ -128,5 +128,9 @@ namespace DVLD.BusinessLogic
             return ClsUserData.DeleteUser(UserID);
         }
 
+        public static bool IsUserExist(int UserID)
+        {
+            return ClsUserData.IsUserExist(UserID);
+        }
     }
 }
