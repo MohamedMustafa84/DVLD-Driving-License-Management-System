@@ -327,5 +327,77 @@ namespace DVLD.DataAccess
             return IsFound;
         }
 
+
+        public static bool IsUserExist(string userName)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select Found=1 from Users where UserName=@userName;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@userName", userName);
+
+
+            bool IsFound = false;
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                IsFound = reader.HasRows;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error Updating User Data:" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
+
+        public static bool IsUserExistForPersonID(int personID)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select Found=1 from Users where PersonID=@personID;";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@personID", personID);
+
+
+            bool IsFound = false;
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                IsFound = reader.HasRows;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error Updating User Data:" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
     }
 }

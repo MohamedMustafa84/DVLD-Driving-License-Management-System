@@ -132,5 +132,16 @@ namespace DVLD.BusinessLogic
         {
             return ClsUserData.IsUserExist(UserID);
         }
+
+        public static bool IsUserExist(string UserName)
+        {
+            return ClsUserData.IsUserExist(UserName);
+        }
+
+        public static bool IsUserExistForPersonID(int PersonID)
+        {
+            return ClsUserData.IsUserExistForPersonID(PersonID);
+        }
+        
     }
 }
