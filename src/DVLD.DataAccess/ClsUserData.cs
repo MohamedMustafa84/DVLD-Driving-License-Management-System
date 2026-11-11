@@ -134,6 +134,49 @@ namespace DVLD.DataAccess
 
 
 
+        public static bool AddNewUser(int personID,string userName, string password, bool isActive)
+        {
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"insert into Users(PersonID,UserName,UserPassword,IsActive)
+                            values
+                                    (@personID,@userName,@password,@isActive);
+                                SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@userName", userName);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@personID", personID);
+            command.Parameters.AddWithValue("@isActive", isActive);
+
+            int UserID = -1;
+            try
+            {
+                connection.Open();
+
+                object Result = command.ExecuteScalar();
+
+                if(Result !=null && int.TryParse(Result.ToString(), out int InsertedUserID))
+                {
+                    UserID= InsertedUserID;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error Adding New User:" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return (UserID !=-1);
+        }
+
+
 
     }
 }

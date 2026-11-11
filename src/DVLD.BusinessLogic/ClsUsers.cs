@@ -1,6 +1,7 @@
 ﻿using DVLD.DataAccess;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,5 +78,10 @@ namespace DVLD.BusinessLogic
             return null;
         }
 
+
+        public static bool AddNewUser( string userName, string password ,int personID, bool isActive)
+        {
+            return ClsUserData.AddNewUser(personID, userName, password, isActive);
+        }
     }
 }
