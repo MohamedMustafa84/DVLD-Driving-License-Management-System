@@ -180,6 +180,7 @@
     <Compile Include="Business.cs" />
     <Compile Include="ClsCountry.cs" />
     <Compile Include="ClsPerson.cs" />
+    <Compile Include="ClsUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

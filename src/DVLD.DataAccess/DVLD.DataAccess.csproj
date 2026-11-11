@@ -183,6 +183,7 @@
   <ItemGroup>
     <Compile Include="ClsCountryData.cs" />
     <Compile Include="ClsPersonData.cs" />
+    <Compile Include="ClsUserData.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="DataAccessSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
