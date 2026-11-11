@@ -1,32 +1,4 @@
 
-insert into Countries(CountryName) values
-
-('SUDAN'),
-('KSA'),
-('JAPAN'),
-('CHINA'),
-('QATAR'),
-('UK'),
-('USA'),
-('RUSSIA'),
-('INDIA');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 insert  into countries values
 ('Sudan'),
@@ -54,5 +26,9 @@ People(FirstName,SecondName,ThirdName,LastName,NationalNo,DateOFBirth,phone,Nati
 ('mona','talin','ali','mohamed','N10','1940-4-19','2490998993',1,null,'kjjjh-12',2,null);
 
 
+insert into Users (UserName,UserPassword,PersonID,IsActive)
+Values
+('Mohamed','1234',1,1), -- 0-->IsActive=false; 1-->IsActive=true
+('Ali','123456',1,0);
 
 
