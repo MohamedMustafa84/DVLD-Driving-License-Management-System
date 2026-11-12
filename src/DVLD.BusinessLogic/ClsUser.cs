@@ -95,7 +95,8 @@ namespace DVLD.BusinessLogic
 
         private bool _AddNewUser()
         {
-            return ClsUserData.AddNewUser(PersonID, UserName, Password, IsActive);
+            this.UserID = ClsUserData.AddNewUser(PersonID, UserName, Password, IsActive);
+            return UserID != -1;
         }
 
         private bool _UpdateUser()

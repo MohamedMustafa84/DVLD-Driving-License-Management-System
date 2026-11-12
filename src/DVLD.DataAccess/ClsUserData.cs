@@ -135,7 +135,7 @@ namespace DVLD.DataAccess
 
 
 
-        public static bool AddNewUser(int personID,string userName, string password, bool isActive)
+        public static int AddNewUser(int personID,string userName, string password, bool isActive)
         {
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
@@ -174,7 +174,7 @@ namespace DVLD.DataAccess
             {
                 connection.Close();
             }
-            return (UserID !=-1);
+            return UserID;
         }
 
 
