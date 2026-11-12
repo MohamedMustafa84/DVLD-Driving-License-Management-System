@@ -97,6 +97,7 @@ namespace DVLD.Presentation.WindowsForms.People.Controls
             cbFilterBy.SelectedValue = 0;
             tbFilterValue.Text=PersonID.ToString();
             tbFilterValue.Focus();
+            cbFilterBy.Enabled= EnabelFilter;
 
 
             FindNow();
