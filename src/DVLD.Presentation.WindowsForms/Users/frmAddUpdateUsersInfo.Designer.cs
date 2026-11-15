@@ -185,7 +185,7 @@
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(430, 39);
             this.tbUserName.TabIndex = 3;
-            this.tbUserName.Validating += new System.ComponentModel.CancelEventHandler(this.tbPasswordConfirm_Validating);
+            this.tbUserName.Validating += new System.ComponentModel.CancelEventHandler(this.IsUserNameAvilable);
             // 
             // label2
             // 

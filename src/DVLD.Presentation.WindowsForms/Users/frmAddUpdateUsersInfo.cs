@@ -217,7 +217,13 @@ namespace DVLD.Presentation.WindowsForms.Users
 
         }
 
-        
-
+        private void IsUserNameAvilable(object sender, CancelEventArgs e)
+        {
+            if (ClsUser.IsUserExist(tbUserName.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(tbUserName, "This User Name Is Already Taken ,Please Choose Another One");
+            }
+        }
     }
 }
