@@ -1,5 +1,7 @@
-﻿using DVLD.Presentation.WindowsForms.People;
+﻿using DVLD.BusinessLogic;
+using DVLD.Presentation.WindowsForms.People;
 using DVLD.Presentation.WindowsForms.People.Controls;
+using DVLD.Presentation.WindowsForms.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,26 +29,18 @@ namespace DVLD.Presentation.WindowsForms
 
         private void driversToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             MessageBox.Show("Manage Drivers feature is not implemented yet");
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Manage Users  feature is not implemented yet");
-
-             frmFindPerson findPerson = new frmFindPerson();
-            findPerson.DataBack += DataBackHanlder;
-
-            findPerson .ShowDialog();
+            frmManageUsers manageUsers = new frmManageUsers();
+            manageUsers.ShowDialog();
 
         }
 
-        private void DataBackHanlder(object sender, int PersonID)
-        {
-            MessageBox.Show("Person ID = "+PersonID,"Info",MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
 
-            
 
     }
 }
