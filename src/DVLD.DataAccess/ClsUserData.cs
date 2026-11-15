@@ -240,7 +240,7 @@ namespace DVLD.DataAccess
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.HasRows)
                 {
                     UsersTable.Load(reader);
                 }
