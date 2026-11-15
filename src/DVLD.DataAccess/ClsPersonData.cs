@@ -43,7 +43,7 @@ namespace DVLD.DataAccess
 
                 SqlDataReader reader = Command.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.HasRows)
                 {
                     dtPeopleTable.Load(reader);
                 }
