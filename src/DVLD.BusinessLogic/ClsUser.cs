@@ -127,8 +127,8 @@ namespace DVLD.BusinessLogic
         }
 
         public static DataTable GetAllUsers()
-        {
-            return ClsUserData.GetAllUsers();
+        { 
+           return ClsUserData.GetAllUsers();
         }
 
         public static bool DeleteUser(int UserID)
