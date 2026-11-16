@@ -292,6 +292,7 @@
             this.currnetUserInfoToolStripMenuItem.Name = "currnetUserInfoToolStripMenuItem";
             this.currnetUserInfoToolStripMenuItem.Size = new System.Drawing.Size(375, 40);
             this.currnetUserInfoToolStripMenuItem.Text = "Currnet User Info";
+            this.currnetUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currnetUserInfoToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
@@ -300,6 +301,7 @@
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(375, 40);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem
             // 
@@ -308,6 +310,7 @@
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(375, 40);
             this.signOutToolStripMenuItem.Text = "Sign Out";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
