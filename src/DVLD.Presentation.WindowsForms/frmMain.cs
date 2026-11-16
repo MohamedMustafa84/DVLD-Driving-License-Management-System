@@ -1,4 +1,5 @@
 ﻿using DVLD.BusinessLogic;
+using DVLD.Presentation.WindowsForms.GlobalClasses;
 using DVLD.Presentation.WindowsForms.People;
 using DVLD.Presentation.WindowsForms.People.Controls;
 using DVLD.Presentation.WindowsForms.Users;
@@ -40,7 +41,16 @@ namespace DVLD.Presentation.WindowsForms
 
         }
 
+        private void currnetUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo UserInfo = new frmUserInfo(ClsGlobal.CurrentUser.UserID);
+            UserInfo.ShowDialog();
+        }
 
-
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword ChangePassword = new frmChangePassword(ClsGlobal.CurrentUser.UserID);
+            ChangePassword.ShowDialog();
+        }
     }
 }
