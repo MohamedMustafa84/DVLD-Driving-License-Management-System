@@ -59,7 +59,7 @@ namespace DVLD.Presentation.WindowsForms
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClsGlobal.CurrentUser = null;
-            _frmLogIn.ShowDialog();
+            _frmLogIn.Show();
             this.Close();
         }
     }
