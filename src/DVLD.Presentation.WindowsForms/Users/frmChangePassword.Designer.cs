@@ -114,7 +114,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = global::DVLD.Presentation.WindowsForms.Properties.Resources.Close_32;
+            this.btnSave.Image = global::DVLD.Presentation.WindowsForms.Properties.Resources.Save_32;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(605, 681);
             this.btnSave.Name = "btnSave";
